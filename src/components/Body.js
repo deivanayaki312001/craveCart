@@ -115,7 +115,7 @@ const Body = () => {
         </button>
        
       </div>
-      <div className="my-5 font-semibold text-xl">{title3}</div>
+      <div className="mt-5 font-semibold text-xl">{title3}</div>
       <div className="relative flex items-center">
         <MdChevronLeft
           className="opacity-45 cursor-pointer hover:opacity-100"

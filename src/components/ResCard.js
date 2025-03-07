@@ -12,7 +12,7 @@ const ResCard = (props) => {
   const { header, subHeader } = resData?.info?.aggregatedDiscountInfoV3 || {};
 
   return (
-    <div data-testid="restaurantCard" className="flex flex-col p-4 w-64 min-h-[380px] rounded-xl bg-transparent m-5 gap-1 transition-transform duration-300 hover:scale-95">
+    <div data-testid="restaurantCard" className="flex flex-col p-4 w-64 min-h-[380px] rounded-xl bg-transparent mx-5 gap-1 transition-transform duration-300 hover:scale-95">
       <div className="w-full h-full relative">
         <img
           className="w-64 max-h-36 object-cover rounded-xl"

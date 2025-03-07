@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const [dynamicBtn , setdynamicBtn] = useState("Login");
   const onlinestatus =useOnlineStatus();
- 
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const cartItems = useSelector((store)=>store.cart.items)
   console.log(cartItems)
@@ -22,8 +22,14 @@ const Header = () => {
         src= {LOGO}
         alt="logo"
       />
-      <div className="Navbar">
-        <ul className="flex items-center">
+      <button 
+        className="lg:hidden p-2 border rounded-lg" 
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        ☰
+      </button>
+      <div className={`lg:flex items-center ${menuOpen ? "block" : "hidden"} absolute lg:static top-16 right-4 bg-white shadow-lg lg:shadow-none p-4 rounded-lg lg:p-0 lg:bg-transparent`}>
+        <ul className="flex flex-col lg:flex-row items-start lg:items-center">
           <li className="m-1 hover:bg-[rgb(252,148,51)] px-3 py-2 rounded-lg"><Link to ="/">Home</Link></li>
           <li className="m-1 hover:bg-[rgb(252,148,51)] px-3 py-2 rounded-lg"><Link to="/about">About Us</Link></li>
           <li className="m-1 hover:bg-[rgb(252,148,51)] px-3 py-2 rounded-lg"> <Link to ="/contact"> Contact Us</Link></li>
@@ -37,7 +43,7 @@ const Header = () => {
             setdynamicBtn("Logout"):setdynamicBtn("Login")
           )}>{dynamicBtn}</button>
            <input
-          className="border border-black"
+          className="border border-black pl-4 rounded-lg"
           value={loggedInUser}
           onChange={(e) => {
             setusername(e.target.value);
